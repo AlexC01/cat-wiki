@@ -4,9 +4,14 @@ import { getBreedByName } from "../services/catServices";
 
 const router = express.Router();
 
-router.get("/cat/breeds", async (_req, res) => {
+interface query {
+  search: string;
+}
+
+router.get("/cat/breeds", async (req, res) => {
   try {
-    const cats: CatBreed[] = await getBreedByName();
+    const { search } = req.query as unknown as query;
+    const cats: CatBreed[] = await getBreedByName(search);
     res.send(cats);
   } catch (err) {
     res.status(500).send();
