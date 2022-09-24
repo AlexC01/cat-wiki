@@ -1,6 +1,6 @@
 import express from "express";
-import { CatBreed } from "../models/cats";
-import { getBreedByName } from "../services/catServices";
+import { CatBreed, SingleCat } from "../models/cats";
+import { getBreedByName, getSingleBreed } from "../services/catServices";
 
 const router = express.Router();
 
@@ -13,6 +13,15 @@ router.get("/cat/breeds", async (req, res) => {
     const { search } = req.query as unknown as query;
     const cats: CatBreed[] = await getBreedByName(search);
     res.send(cats);
+  } catch (err) {
+    res.status(500).send();
+  }
+});
+
+router.get("/cat/breeds/:id", async (req, res) => {
+  try {
+    const cat: SingleCat[] = await getSingleBreed(req.params.id);
+    res.send(cat);
   } catch (err) {
     res.status(500).send();
   }
