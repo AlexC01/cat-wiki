@@ -1,23 +1,21 @@
 export type CatBreed = {
+  weight: { imperial: string; metric: string };
   id: string;
   name: string;
+  cfa_url: string;
+  vetstreet_url: string;
+  vcahospitals_url: string;
   temperament: string;
-  life_span: string;
-  alt_names: string;
-  wikipedia_url: string;
   origin: string;
-  weight_imperial: string;
-  experimental: number;
-  hairless: number;
-  natural: number;
-  rare: number;
-  rex: number;
-  suppress_tail: number;
-  short_legs: number;
-  hypoallergenic: number;
+  country_codes: string;
+  country_code: string;
+  description: string;
+  life_span: string;
+  indoor: number;
+  lap: number;
+  alt_names: string;
   adaptability: number;
   affection_level: number;
-  country_code: string;
   child_friendly: number;
   dog_friendly: number;
   energy_level: number;
@@ -28,6 +26,16 @@ export type CatBreed = {
   social_needs: number;
   stranger_friendly: number;
   vocalisation: number;
+  experimental: number;
+  hairless: number;
+  natural: number;
+  rare: number;
+  rex: number;
+  suppressed_tail: number;
+  short_legs: number;
+  wikipedia_url: string;
+  hypoallergenic: number;
+  reference_image_id: string;
 };
 
 export type SingleCat = {
@@ -37,4 +45,20 @@ export type SingleCat = {
   height: number;
   breeds: CatBreed[];
   categories?: { id: number; name: string };
+};
+
+export type FavoritesCats = {
+  id: number;
+  user_id: string;
+  image_id: string;
+  sub_id: string;
+  created_at: Date;
+  image: { id: string; url: string };
+};
+
+export type MostSearchCats = {
+  id: string;
+  name: string;
+  description: string;
+  image: { id: string; url: string };
 };
