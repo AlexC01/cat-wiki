@@ -3,9 +3,9 @@ import { CatBreed, FavoritesCats, MostSearchCats, SingleCat } from "../models/ca
 
 const baseURL = "https://api.thecatapi.com/v1";
 
-export const getBreedByName = async (query: string) => {
+export const getBreedByName = async (query: string): Promise<CatBreed[]> => {
   const response = await fetch(`${baseURL}/breeds/search?q=${query}`, {
-    headers: { "x-api-key": process.env.CAT_API_KEY || "" }
+    headers: { "x-api-key": process.env.CAT_API_KEY ?? "" }
   });
   if (response.status === 404) {
     throw new Error();
@@ -14,9 +14,9 @@ export const getBreedByName = async (query: string) => {
   return result;
 };
 
-export const getSingleBreed = async (breedId: string, limit: number) => {
+export const getSingleBreed = async (breedId: string, limit: number): Promise<SingleCat[]> => {
   const response = await fetch(`${baseURL}/images/search?breed_id=${breedId}&limit=${limit}`, {
-    headers: { "x-api-key": process.env.CAT_API_KEY || "" }
+    headers: { "x-api-key": process.env.CAT_API_KEY ?? "" }
   });
   if (response.status === 404) {
     throw new Error();
@@ -25,20 +25,20 @@ export const getSingleBreed = async (breedId: string, limit: number) => {
   return result;
 };
 
-export const getMostSearch = async () => {
+export const getMostSearch = async (): Promise<MostSearchCats[]> => {
   const response = await fetch(`${baseURL}/favourites`, {
-    headers: { "x-api-key": process.env.CAT_API_KEY || "" }
+    headers: { "x-api-key": process.env.CAT_API_KEY ?? "" }
   });
   if (response.status === 404) {
     throw new Error();
   }
   const result = (await response.json()) as FavoritesCats[];
 
-  const mostSearch = (await mapMostSearch(result)) as MostSearchCats[];
+  const mostSearch = await mapMostSearch(result);
   return mostSearch;
 };
 
-const mapMostSearch = async (arr: FavoritesCats[]) => {
+const mapMostSearch = async (arr: FavoritesCats[]): Promise<MostSearchCats[]> => {
   const newArr = await Promise.all(
     arr.map(async item => {
       const response = await getSingleBreed(item.sub_id, 1);

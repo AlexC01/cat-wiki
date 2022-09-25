@@ -1,4 +1,4 @@
-export type CatBreed = {
+export interface CatBreed {
   weight: { imperial: string; metric: string };
   id: string;
   name: string;
@@ -36,29 +36,29 @@ export type CatBreed = {
   wikipedia_url: string;
   hypoallergenic: number;
   reference_image_id: string;
-};
+}
 
-export type SingleCat = {
+export interface SingleCat {
   id: string;
   url: string;
   width: number;
   height: number;
   breeds: CatBreed[];
   categories?: { id: number; name: string };
-};
+}
 
-export type FavoritesCats = {
+export interface FavoritesCats {
   id: number;
   user_id: string;
   image_id: string;
   sub_id: string;
   created_at: Date;
   image: { id: string; url: string };
-};
+}
 
-export type MostSearchCats = {
+export interface MostSearchCats {
   id: string;
   name: string;
   description: string;
   image: { id: string; url: string };
-};
+}
