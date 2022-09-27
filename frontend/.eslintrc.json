@@ -9,6 +9,7 @@
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:import/typescript",
     "prettier"
   ],
@@ -17,10 +18,10 @@
   "parserOptions": {
     "ecmaFeatures": { "jsx": true },
     "ecmaVersion": "latest",
-    "project": "frontend/tsconfig.json",
+    "project": ["frontend/tsconfig.json", "frontend/tailwind.config.js"],
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier", "tailwindcss"],
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
