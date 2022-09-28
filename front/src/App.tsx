@@ -1,23 +1,19 @@
 import React from "react";
+import { useRoutes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import routesNames from "./routes/customRoutes";
+import MainRoute from "./routes/MainRoute";
 
-function App() {
-  return (
-    <div className="App bg-black">
-      <header className="App-header bg-red-500">
-        <p>
-          Edit <code>src/Appx.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const mainRoutes = {
+    path: routesNames.home,
+    element: <MainRoute />,
+    children: [{ path: routesNames.home, element: <Home /> }],
+  };
+
+  const routing = useRoutes([mainRoutes]);
+
+  return { routing };
+};
 
 export default App;
