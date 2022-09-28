@@ -13,7 +13,7 @@ const App = () => {
 
   const routing = useRoutes([mainRoutes]);
 
-  return { routing };
+  return <>{routing}</>;
 };
 
 export default App;
