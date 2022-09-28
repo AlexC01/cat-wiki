@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.footer{
+    border-radius: 42px 42px 0 0;
+}
+
+.invert-color{
+    filter: brightness(0) invert(1);
+}
