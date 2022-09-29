@@ -6,9 +6,11 @@ import { Outlet } from "react-router-dom";
 const MainRoute = () => {
   return (
     <div className="font-montserrat min-h-screen">
-      <div className="px-20 py-10">
+      <div className="px-5 sm:px-10 md:px-16 lg:px-24 py-10">
         <Navbar />
-        <Outlet />
+        <div className="mt-8">
+          <Outlet />
+        </div>
       </div>
       <Footer />
     </div>
