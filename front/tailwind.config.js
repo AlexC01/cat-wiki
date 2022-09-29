@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         cream: "#E3E1DC",
+        textColor: "#291507",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

@@ -1,3 +1,4 @@
+import Search from "components/Search/Search";
 import React from "react";
 import CatLogo from "../../assets/CatwikiLogo.svg";
 
@@ -11,6 +12,7 @@ const Home = () => {
             Get to know more about your
           </p>
           <p className="text-lg xl:text-2xl">cat breed</p>
+          <Search />
         </div>
       </div>
     </div>
