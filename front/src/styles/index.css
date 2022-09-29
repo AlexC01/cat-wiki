@@ -10,3 +10,24 @@
 .invert-color{
     filter: brightness(0) invert(1);
 }
+
+.cat-logo{
+    width: 300px;
+}
+
+.hero-styles{
+    background-size: 100% 100%;
+    background-image: url('../assets/HeroImagelg.png');
+    height: 550px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .hero-styles{
+        background-image: url('../assets/HeroImagemd.png');
+        height: 400px;
+    }
+    .cat-logo{
+        width: 250px;
+    }
+}
