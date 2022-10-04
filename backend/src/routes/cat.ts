@@ -22,7 +22,8 @@ router.get("/cat/breeds", (async (req, res) => {
 router.get("/cat/breeds/:id", (async (req, res) => {
   try {
     const { limit } = req.query as unknown as query;
-    const cat: SingleCat[] = await getSingleBreed(req.params.id, parseInt(limit) ?? 8);
+    const number = limit !== undefined ? parseInt(limit) : 8;
+    const cat: SingleCat[] = await getSingleBreed(req.params.id, number);
     res.send(cat);
   } catch (err) {
     res.status(500).send();
