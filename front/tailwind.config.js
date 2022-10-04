@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         cream: "#E3E1DC",
         textColor: "#291507",
+        colorGray: "rgba(151, 151, 151, 0.1)",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
