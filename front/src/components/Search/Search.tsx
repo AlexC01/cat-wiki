@@ -72,7 +72,7 @@ const Search = () => {
         />
       </div>
       {results.length > 0 && (
-        <div className="results-box max-h-48">
+        <div className="results-box max-h-48 absolute">
           <div className="results-box_content">
             <ul>
               {results.map(item => (
