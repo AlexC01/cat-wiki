@@ -23,6 +23,15 @@ const Search = () => {
           className="bg-full w-72 px-4 py-2 rounded-3xl border focus:border-gray-400 focus:ring-2 outline-none leading-8 transition-colors duration-200 ease-in-out"
         />
       </div>
+      <div className="results-box max-h-48">
+        <div className="results-box_content">
+          <ul>
+            <li className="cursor-pointer hover:bg-colorGray py-3 px-2 rounded-xl">
+              American Bobtail
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
