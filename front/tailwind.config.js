@@ -7,6 +7,9 @@ module.exports = {
         cream: "#E3E1DC",
         textColor: "#291507",
         colorGray: "rgba(151, 151, 151, 0.1)",
+        lineColor: "#4D270C",
+        secondText: "rgba(41, 21, 7, 0.6)",
+        secondTextHover: "rgba(41, 21, 7)",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
