@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { CatBreed, MostSearchCats, SingleCat } from "models/Cats";
 
-const baseUrl = process.env.API_URL;
+const baseUrl = process.env.REACT_APP_API_URL;
 
 const fetchApi = async <T>(extension: string, query?: string): Promise<T> => {
   const request: AxiosResponse = await axios(

@@ -1,6 +1,29 @@
-import React from "react";
+import { CatBreed } from "models/Cats";
+import React, { useState } from "react";
+import { debounce } from "lodash";
+import { getCatByBreed } from "services/http";
 
 const Search = () => {
+  const [results, setResults] = useState<CatBreed[]>([]);
+
+  const getResults = async (value: string) => {
+    try {
+      const result = await getCatByBreed(value);
+      setResults(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSearch = (searchValue: string) => {
+    if (searchValue.trim() === "") {
+      setResults([]);
+      return;
+    }
+    getResults(searchValue);
+  };
+
+  const searchFunction = debounce(handleSearch, 900);
   return (
     <div className="mt-10">
       <div className="relative block text-textColor">
@@ -19,19 +42,27 @@ const Search = () => {
           />
         </svg>
         <input
+          onChange={e => searchFunction(e.target.value)}
           placeholder="Enter your breed"
           className="bg-full w-72 px-4 py-2 rounded-3xl border focus:border-gray-400 focus:ring-2 outline-none leading-8 transition-colors duration-200 ease-in-out"
         />
       </div>
-      <div className="results-box max-h-48">
-        <div className="results-box_content">
-          <ul>
-            <li className="cursor-pointer hover:bg-colorGray py-3 px-2 rounded-xl">
-              American Bobtail
-            </li>
-          </ul>
+      {results.length > 0 && (
+        <div className="results-box max-h-48">
+          <div className="results-box_content">
+            <ul>
+              {results.map(item => (
+                <li
+                  key={item.id}
+                  className="cursor-pointer hover:bg-colorGray py-3 px-2 rounded-xl"
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
