@@ -4,11 +4,14 @@ import Search from "components/Search/Search";
 import { MostSearchCats } from "models/Cats";
 import { getMostSearch } from "services/http";
 import Loading from "components/Loading/Loading";
+import routesNames from "routes/customRoutes";
+import { useNavigate } from "react-router-dom";
 import CatLogo from "../../assets/CatwikiLogo.svg";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [cats, setCats] = useState<MostSearchCats[]>([]);
+  const navigate = useNavigate();
 
   const getMostBreedsSearch = async () => {
     setLoading(true);
@@ -55,8 +58,14 @@ const Home = () => {
               <h2>to discover</h2>
             </div>
             <div className="text-secondText flex cursor-pointer hover:text-secondTextHover">
-              <p className="uppercase font-bold mr-2">See more</p>
+              <p
+                className="uppercase font-bold mr-2"
+                onClick={() => navigate(routesNames.mostSearch)}
+              >
+                See more
+              </p>
               <svg
+                onClick={() => navigate(routesNames.mostSearch)}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"

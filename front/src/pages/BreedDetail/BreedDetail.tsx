@@ -88,7 +88,7 @@ const BreedDetail = () => {
               />
             </div>
           </div>
-          <div className="mt-20">
+          <div className="mt-20 mb-10">
             <h2 className="text-2xl font-bold text-textColor">Other Photos</h2>
             <div className="grid grid-cols-4 gap-8 mt-5">
               {images.map((item, index) => (
