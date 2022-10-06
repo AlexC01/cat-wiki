@@ -11,6 +11,8 @@ module.exports = {
         secondText: "rgba(41, 21, 7, 0.6)",
         secondTextHover: "rgba(41, 21, 7)",
         boxColor: "#DEC68B",
+        skillColor: "#544439",
+        noSkill: "#E0E0E0",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

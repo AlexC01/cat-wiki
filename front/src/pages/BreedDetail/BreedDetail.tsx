@@ -1,4 +1,5 @@
 // import CatImage from "components/Images/CatImage";
+import BreedSkills from "components/BreedSkills/BreedSkills";
 import CatImage from "components/Images/CatImage";
 import Loading from "components/Loading/Loading";
 import { CatBreed } from "models/Cats";
@@ -68,6 +69,17 @@ const BreedDetail = () => {
               Life Span:{" "}
               <span className="font-semibold">{breed.life_span}</span>
             </p>
+            <BreedSkills name="Adaptibility" cant={breed.adaptability} />
+            <BreedSkills name="Affection Level" cant={breed.affection_level} />
+            <BreedSkills name="Child Friendly" cant={breed.child_friendly} />
+            <BreedSkills name="Grooming" cant={breed.grooming} />
+            <BreedSkills name="Intelligence" cant={breed.intelligence} />
+            <BreedSkills name="Health Issues" cant={breed.health_issues} />
+            <BreedSkills name="Social Needs" cant={breed.social_needs} />
+            <BreedSkills
+              name="Stranger Friendly"
+              cant={breed.stranger_friendly}
+            />
           </div>
         </div>
       )}
