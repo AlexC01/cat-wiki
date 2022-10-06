@@ -42,46 +42,65 @@ const BreedDetail = () => {
     <section>
       {loading && <Loading />}
       {!loading && !error && images.length > 0 && breed && (
-        <div className="grid grid-cols-3">
-          <div className="relative">
-            <div className="z-20 pl-20">
-              <img
-                className="rounded-3xl w-48 h-48 xl:w-80 xl:h-80"
-                src={images[0]}
-                alt={breed.name}
+        <>
+          <div className="grid grid-cols-3">
+            <div className="relative">
+              <div className="z-20 pl-20">
+                <img
+                  className="rounded-3xl w-48 h-48 xl:w-80 xl:h-80"
+                  src={images[0]}
+                  alt={breed.name}
+                />
+              </div>
+              <div className="w-48 h-40 xl:w-52 xl:h-64 left-16 bg-boxColor absolute rounded-xl top-8 box_behind" />
+            </div>
+            <div className="pr-20 col-span-2 ml-24">
+              <h2 className="text-2xl font-bold text-textColor">
+                {breed.name}
+              </h2>
+              <p className="mt-5 text-textColor text-lg font-semibold">
+                {breed.description}
+              </p>
+              <p className="font-bold mt-6 text-lg">
+                Temperament:{" "}
+                <span className="font-semibold">{breed.temperament}</span>
+              </p>
+              <p className="font-bold mt-6 text-lg">
+                Origin: <span className="font-semibold">{breed.origin}</span>
+              </p>
+              <p className="font-bold mt-6 text-lg">
+                Life Span:{" "}
+                <span className="font-semibold">{breed.life_span}</span>
+              </p>
+              <BreedSkills name="Adaptibility" cant={breed.adaptability} />
+              <BreedSkills
+                name="Affection Level"
+                cant={breed.affection_level}
+              />
+              <BreedSkills name="Child Friendly" cant={breed.child_friendly} />
+              <BreedSkills name="Grooming" cant={breed.grooming} />
+              <BreedSkills name="Intelligence" cant={breed.intelligence} />
+              <BreedSkills name="Health Issues" cant={breed.health_issues} />
+              <BreedSkills name="Social Needs" cant={breed.social_needs} />
+              <BreedSkills
+                name="Stranger Friendly"
+                cant={breed.stranger_friendly}
               />
             </div>
-            <div className="w-48 h-40 xl:w-52 xl:h-64 left-16 bg-boxColor absolute rounded-xl top-8 box_behind" />
           </div>
-          <div className="pr-20 col-span-2 ml-24">
-            <h2 className="text-2xl font-bold text-textColor">{breed.name}</h2>
-            <p className="mt-5 text-textColor text-lg font-semibold">
-              {breed.description}
-            </p>
-            <p className="font-bold mt-6 text-lg">
-              Temperament:{" "}
-              <span className="font-semibold">{breed.temperament}</span>
-            </p>
-            <p className="font-bold mt-6 text-lg">
-              Origin: <span className="font-semibold">{breed.origin}</span>
-            </p>
-            <p className="font-bold mt-6 text-lg">
-              Life Span:{" "}
-              <span className="font-semibold">{breed.life_span}</span>
-            </p>
-            <BreedSkills name="Adaptibility" cant={breed.adaptability} />
-            <BreedSkills name="Affection Level" cant={breed.affection_level} />
-            <BreedSkills name="Child Friendly" cant={breed.child_friendly} />
-            <BreedSkills name="Grooming" cant={breed.grooming} />
-            <BreedSkills name="Intelligence" cant={breed.intelligence} />
-            <BreedSkills name="Health Issues" cant={breed.health_issues} />
-            <BreedSkills name="Social Needs" cant={breed.social_needs} />
-            <BreedSkills
-              name="Stranger Friendly"
-              cant={breed.stranger_friendly}
-            />
+          <div className="mt-20">
+            <h2 className="text-2xl font-bold text-textColor">Other Photos</h2>
+            <div className="grid grid-cols-4 gap-8 mt-5">
+              {images.map((item, index) => (
+                <>
+                  {index !== 1 && (
+                    <CatImage url={item} key={item} name={breed.name} />
+                  )}
+                </>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
       {!loading && error && <NotFound />}
     </section>
