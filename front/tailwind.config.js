@@ -10,6 +10,7 @@ module.exports = {
         lineColor: "#4D270C",
         secondText: "rgba(41, 21, 7, 0.6)",
         secondTextHover: "rgba(41, 21, 7)",
+        boxColor: "#DEC68B",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
