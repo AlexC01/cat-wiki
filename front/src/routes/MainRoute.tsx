@@ -8,7 +8,7 @@ const MainRoute = () => {
     <div className="font-montserrat min-h-screen">
       <div className="px-5 sm:px-10 md:px-16 lg:px-24 py-10">
         <Navbar />
-        <div className="mt-8">
+        <div className="mt-8 min-h-screen">
           <Outlet />
         </div>
       </div>
