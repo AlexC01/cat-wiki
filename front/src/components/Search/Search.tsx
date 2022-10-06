@@ -2,10 +2,12 @@ import { CatBreed } from "models/Cats";
 import React, { useState } from "react";
 import { debounce } from "lodash";
 import { getCatByBreed } from "services/http";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [results, setResults] = useState<CatBreed[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const getResults = async (value: string) => {
     try {
@@ -77,6 +79,7 @@ const Search = () => {
             <ul>
               {results.map(item => (
                 <li
+                  onClick={() => navigate(`/breed/${item.id}`)}
                   key={item.id}
                   className="cursor-pointer hover:bg-colorGray py-3 px-2 rounded-xl"
                 >
