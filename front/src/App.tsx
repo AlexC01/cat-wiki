@@ -1,12 +1,19 @@
 import BreedDetail from "pages/BreedDetail/BreedDetail";
 import NotExist from "pages/Error/NotExist";
-import React from "react";
-import { useRoutes } from "react-router-dom";
+import MostSearched from "pages/MostSearched/MostSearched";
+import React, { useEffect } from "react";
+import { useLocation, useRoutes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import routesNames from "./routes/customRoutes";
 import MainRoute from "./routes/MainRoute";
 
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const mainRoutes = {
     path: routesNames.home,
     element: <MainRoute />,
@@ -14,6 +21,7 @@ const App = () => {
       { path: "*", element: <NotExist /> },
       { path: routesNames.home, element: <Home /> },
       { path: routesNames.breed, element: <BreedDetail /> },
+      { path: routesNames.mostSearch, element: <MostSearched /> },
     ],
   };
 
