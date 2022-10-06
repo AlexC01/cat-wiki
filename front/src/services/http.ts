@@ -14,7 +14,7 @@ export const getCatByBreed = (query: string) =>
   fetchApi<CatBreed[]>("/cat/breeds", `?search=${query}`);
 
 export const getCatById = (id: string) =>
-  fetchApi<SingleCat[]>(`/cat/breeds/${id}`, "?limit=8");
+  fetchApi<SingleCat[]>(`/cat/breeds/${id}`, "?limit=9");
 
 export const getMostSearch = () =>
   fetchApi<MostSearchCats[]>("/cat/most-search");

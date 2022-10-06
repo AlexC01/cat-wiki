@@ -55,6 +55,10 @@
     background-color: #AAAAAA;
 }
 
+.box_behind{
+    z-index: -999;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .hero-styles{
