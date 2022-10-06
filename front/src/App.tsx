@@ -1,3 +1,5 @@
+import BreedDetail from "pages/BreedDetail/BreedDetail";
+import NotExist from "pages/Error/NotExist";
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -8,7 +10,11 @@ const App = () => {
   const mainRoutes = {
     path: routesNames.home,
     element: <MainRoute />,
-    children: [{ path: routesNames.home, element: <Home /> }],
+    children: [
+      { path: "*", element: <NotExist /> },
+      { path: routesNames.home, element: <Home /> },
+      { path: routesNames.breed, element: <BreedDetail /> },
+    ],
   };
 
   const routing = useRoutes([mainRoutes]);
